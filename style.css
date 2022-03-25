@@ -1,0 +1,40 @@
+body * {
+    margin: 0;
+    padding: 0;
+}
+
+#keyboard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#keyboard > div {
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#keyboard > div:not(:last-child) {
+    margin-bottom: 5px;
+
+}
+
+.shift {
+    width: 55px;
+}
+
+.key {
+    width: 35px;
+    padding: 5px;
+}
+
+.keydown {
+    color: rgb(254, 255, 253);
+}
+
+#result {
+    width: 500px;
+    white-space: pre-wrap;
+    overflow: auto;
+}
