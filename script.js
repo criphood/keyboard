@@ -4,46 +4,59 @@ let keyboard = document.querySelector('#keyboard');
 let keys = document.querySelectorAll('.key');
 let specialKeys = document.querySelectorAll('.specialKey');
 let result = document.querySelector('#result');
+let tab = document.querySelector('#tab');
+let space = document.querySelector('#space');
 let capslock = document.querySelector('#capslock');
+let shift = document.querySelectorAll('.shift');
 let shiftleft = document.querySelector('#shiftleft');
 let shiftright = document.querySelector('#shiftright');
 
 
-for (let specialKey of specialKeys) {
-    document.addEventListener('keydown', function(e) {
-        if (e.code == 'ShiftLeft') {
-            shiftleft.classList.add('keydown');
-        } else if (e.code == 'ShiftRight') {
-            shiftright.classList.add('keydown');
-        } else if (e.key == specialKey.value) {
-            specialKey.classList.add('keydown');
-        }
-    })
+document.addEventListener('keydown', function(e) {
+    if (e.code == 'ShiftLeft') {
+        shiftleft.classList.add('keydown');
+    } else if (e.code == 'ShiftRight') {
+        shiftright.classList.add('keydown');
+    } else if (e.code == 'CapsLock') {
+        capslock.classList.add('keydown');
+    } else if (e.code == 'Space') {
+        e.preventDefault();
+        space.classList.add('keydown');
+        result.innerHTML += ' ';
+    } else if (e.code == 'Tab') {
+        e.preventDefault();
+        tab.classList.add('keydown');
+        result.innerHTML += '\t';
+    }
+})
 
-    document.addEventListener('keyup', function(e) {
-        if (e.code == 'ShiftLeft') {
-            shiftleft.classList.remove('keydown');
-        } else if (e.code == 'ShiftRight') {
-            shiftright.classList.remove('keydown');
-        } else if (e.key == specialKey.value) {
-            specialKey.classList.remove('keydown');
-        }
+for (let specialKey of specialKeys) {
+    document.addEventListener('keyup', function() {
+        specialKey.classList.remove('keydown');
     })
 }
 
+keyboard.addEventListener('mousedown', (event) => {
+    if (event.target.value == 'Tab') {
+        result.innerHTML += '\t';
+    } else if (event.target.id == 'space') {
+        result.innerHTML += ' ';
+    };
+});
 
 
 for (let key of keys) {
     key.addEventListener('click', keyValue);
     capslock.addEventListener('click', register);
 
-    let flag = 0;
+    var flag = 0;
     keyboard.addEventListener('mousedown', (event) => {
         event.target.classList.add('keydown');
         if (event.target.value == 'Shift' && flag == 0) {
             register();
             flag++;
-        };
+            console.log(flag);
+        }
     });
     keyboard.addEventListener('mouseup', (event) => {
         event.target.classList.remove('keydown');
@@ -58,17 +71,18 @@ for (let key of keys) {
             key.classList.add('keydown');
             keyValue();
         } else if (event.key == 'CapsLock') {
-            register();
+            registerLetters();
         } else if (event.key == 'Shift' && flag == 0) {
             register();
             flag++;
-        }
+        } 
     })
 
+    
     document.addEventListener('keyup', function(event) {
         if (event.key == key.value) {
             key.classList.remove('keydown');
-        } else if (event.key == 'Shift') {
+        }   else if (event.key == 'Shift') {
             register();
             flag--;
         }
@@ -77,16 +91,16 @@ for (let key of keys) {
 
     // Запись в текстовое поле
     function keyValue() {
-        result.value += key.value;
+        result.innerHTML += key.value;
     }
 
     // Caps Lock, Shift
     function register() {
-        registerLetter();
+        registerLetters();
         registerDigits();
     }
 
-    function registerLetter() {
+    function registerLetters() {
         if (key.value == key.value.toLowerCase()) {
             key.value = key.value.toUpperCase();
         } else {

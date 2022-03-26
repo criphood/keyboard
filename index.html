@@ -9,76 +9,81 @@
 
 <body>
 	
-	<div id="keyboard">
-		<div class="keyboard-1st">		
-			<input type="submit" value="`" class="key">
-			<input type="submit" value="1" class="key">
-			<input type="submit" value="2" class="key">
-			<input type="submit" value="3" class="key">
-			<input type="submit" value="4" class="key">
-			<input type="submit" value="5" class="key">
-			<input type="submit" value="6" class="key">
-			<input type="submit" value="7" class="key">
-			<input type="submit" value="8" class="key">
-			<input type="submit" value="9" class="key">
-			<input type="submit" value="0" class="key">
-			<input type="submit" value="-" class="key">
-			<input type="submit" value="=" class="key">
-		</div>
+	<div class="container">
+		<div id="keyboard">
+			<div class="keyboard-1st">		
+				<input type="submit" value="`" class="key">
+				<input type="submit" value="1" class="key">
+				<input type="submit" value="2" class="key">
+				<input type="submit" value="3" class="key">
+				<input type="submit" value="4" class="key">
+				<input type="submit" value="5" class="key">
+				<input type="submit" value="6" class="key">
+				<input type="submit" value="7" class="key">
+				<input type="submit" value="8" class="key">
+				<input type="submit" value="9" class="key">
+				<input type="submit" value="0" class="key">
+				<input type="submit" value="-" class="key">
+				<input type="submit" value="=" class="key">
+			</div>
+	
+			<div class="keyboard-2nd">		
+				<input type="submit" value="Tab" id="tab" class="specialKey">
+				<input type="submit" value="q" class="key">
+				<input type="submit" value="w" class="key">
+				<input type="submit" value="e" class="key">
+				<input type="submit" value="r" class="key">
+				<input type="submit" value="t" class="key">
+				<input type="submit" value="y" class="key">
+				<input type="submit" value="u" class="key">
+				<input type="submit" value="i" class="key">
+				<input type="submit" value="o" class="key">
+				<input type="submit" value="p" class="key">
+				<input type="submit" value="[" class="key">
+				<input type="submit" value="]" class="key">
+			</div>
+			
+			<div class="keyboard-3nd">
+				<input type="submit" value="CAPS" id="capslock" class="specialKey">
+				<input type="submit" value="a" class="key">
+				<input type="submit" value="s" class="key">
+				<input type="submit" value="d" class="key">
+				<input type="submit" value="f" class="key">
+				<input type="submit" value="g" class="key">
+				<input type="submit" value="h" class="key">
+				<input type="submit" value="j" class="key">
+				<input type="submit" value="k" class="key">
+				<input type="submit" value="l" class="key">
+				<input type="submit" value=";" class="key">
+				<input type="submit" value="'" class="key">
+			</div>
+			
+			<div class="keyboard-4th">
+				<input type="submit" value="Shift" id="shiftleft" class="specialKey shift">
+				<input type="submit" value="z" class="key">
+				<input type="submit" value="x" class="key">
+				<input type="submit" value="c" class="key">
+				<input type="submit" value="v" class="key">
+				<input type="submit" value="b" class="key">
+				<input type="submit" value="n" class="key">
+				<input type="submit" value="m" class="key">
+				<input type="submit" value="," class="key">
+				<input type="submit" value="." class="key">
+				<input type="submit" value="/" class="key">
+				<input type="submit" value="Shift" id="shiftright" class="specialKey shift">
+			</div>
 
-		<div class="keyboard-2nd">		
-			<input type="submit" value="Tab" id="Tab" class="specialKey">
-			<input type="submit" value="q" class="key">
-			<input type="submit" value="w" class="key">
-			<input type="submit" value="e" class="key">
-			<input type="submit" value="r" class="key">
-			<input type="submit" value="t" class="key">
-			<input type="submit" value="y" class="key">
-			<input type="submit" value="u" class="key">
-			<input type="submit" value="i" class="key">
-			<input type="submit" value="o" class="key">
-			<input type="submit" value="p" class="key">
-			<input type="submit" value="[" class="key">
-			<input type="submit" value="]" class="key">
+			<div class="keyboard-5th">
+				<input type="submit" value="" id="space" class="specialKey space">
+			</div>
+	
 		</div>
-		
-		<div class="keyboard-3nd">
-			<input type="submit" value="CapsLock" id="capslock" class="specialKey">
-			<input type="submit" value="a" class="key">
-			<input type="submit" value="s" class="key">
-			<input type="submit" value="d" class="key">
-			<input type="submit" value="f" class="key">
-			<input type="submit" value="g" class="key">
-			<input type="submit" value="h" class="key">
-			<input type="submit" value="j" class="key">
-			<input type="submit" value="k" class="key">
-			<input type="submit" value="l" class="key">
-			<input type="submit" value=";" class="key">
-			<input type="submit" value="'" class="key">
+	
+		<br>
+	
+		<div class="output">
+			<textarea id="result" placeholder="Здесь будет введенный текст" readonly></textarea>
 		</div>
-		
-		<div class="keyboard-4th">
-			<input type="submit" value="Shift" id="shiftleft" class="specialKey shift">
-			<input type="submit" value="z" class="key">
-			<input type="submit" value="x" class="key">
-			<input type="submit" value="c" class="key">
-			<input type="submit" value="v" class="key">
-			<input type="submit" value="b" class="key">
-			<input type="submit" value="n" class="key">
-			<input type="submit" value="m" class="key">
-			<input type="submit" value="," class="key">
-			<input type="submit" value="." class="key">
-			<input type="submit" value="/" class="key">
-			<input type="submit" value="Shift" id="shiftright" class="specialKey shift">
-		</div>
-
-	</div>
-
-	<br>
-
-	<div class="output">
-		<!-- <input type="text" id="result" placeholder="Здесь будет введенный текст"> -->
-		<textarea id="result" placeholder="Здесь будет введенный текст" readonly></textarea>
 	</div>
 
 	<script src="./script.js"></script>

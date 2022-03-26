@@ -3,14 +3,24 @@ body * {
     padding: 0;
 }
 
+body {
+    background-color: aliceblue;
+}
+
+.container, #result {
+    width: 570px;
+}
+
 #keyboard {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background-color: rgb(136, 91, 91);
+    border-radius: 10px;
+    padding: 10px;
 }
 
 #keyboard > div {
-    width: 500px;
     display: flex;
     justify-content: space-between;
 }
@@ -20,21 +30,35 @@ body * {
 
 }
 
+.key, .specialKey {
+    font-weight: 500;
+    border-radius: 3px;
+    border: 1px solid black;
+}
+
+
+.key, #tab {
+    width: 40px;
+    height: 40px;
+}
+
 .shift {
     width: 55px;
 }
 
-.key {
-    width: 35px;
-    padding: 5px;
+#capslock {
+    width: 70px;
 }
 
 .keydown {
-    color: rgb(254, 255, 253);
+    font-weight: 800;
+    color: #fff;
+    background-color: rgb(201, 77, 77);
 }
 
-#result {
-    width: 500px;
-    white-space: pre-wrap;
-    overflow: auto;
+#space {
+    width: 100%;
+    height: 40px;
 }
+
+
