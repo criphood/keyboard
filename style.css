@@ -7,6 +7,10 @@ body {
     background-color: aliceblue;
 }
 
+.container {
+    margin: auto;
+}
+
 .container, #result {
     width: 570px;
 }
