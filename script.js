@@ -49,7 +49,7 @@ for (let key of keys) {
     key.addEventListener('click', keyValue);
     capslock.addEventListener('click', register);
 
-    var flag = 0;
+    let flag = 0;
     keyboard.addEventListener('mousedown', (event) => {
         event.target.classList.add('keydown');
         if (event.target.value == 'Shift' && flag == 0) {
