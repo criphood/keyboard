@@ -48,23 +48,37 @@ keyboard.addEventListener('mousedown', (event) => {
 for (let key of keys) {
     key.addEventListener('click', keyValue);
     capslock.addEventListener('click', register);
-
+    
     let flag = 0;
+
+    for (let elem of shift) {
+        elem.addEventListener('click', func);
+        function func() {
+            register();
+            let flag2 = 0;
+            for (let key of keys) {
+                 key.addEventListener('click', func2);
+                 function func2() {
+                    if (flag2 == 0) {
+                        register();
+                        flag2++;
+                    } 
+                } 
+            }
+        }
+    }
+
     keyboard.addEventListener('mousedown', (event) => {
         event.target.classList.add('keydown');
-        if (event.target.value == 'Shift' && flag == 0) {
-            register();
-            flag++;
-            console.log(flag);
-        }
     });
+
+    
+    
     keyboard.addEventListener('mouseup', (event) => {
         event.target.classList.remove('keydown');
-        if (event.target.value == 'Shift') {
-            register();
-            flag--;
-        }
     });
+
+    
 
     document.addEventListener('keydown', function(event) {
         if (event.key == key.value) {
