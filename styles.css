@@ -1,3 +1,6 @@
+.key:hover, .specialKey:hover, .keydown, .mouseout, #clear {
+  transition: all .3s ease; }
+
 body {
   background-color: aliceblue; }
   body * {
@@ -29,10 +32,10 @@ body {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
   font-weight: 600;
   border-radius: 5px;
-  border: 1px solid black; }
+  border: 1px solid black;
+  cursor: pointer; }
   .key:hover, .specialKey:hover {
-    transform: translateY(-2px);
-    transition: all 0.3s ease; }
+    transform: translateY(-2px); }
 
 .key, #tab {
   width: 40px;
@@ -50,11 +53,7 @@ body {
 
 .keydown {
   color: #fff;
-  background-color: #c94d4d;
-  transition: all 0.3s ease; }
-
-.mouseout {
-  transition: all 0.3s ease; }
+  background-color: #c94d4d; }
 
 #result {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
