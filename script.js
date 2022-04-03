@@ -10,7 +10,7 @@ let capslock = document.querySelector('#capslock');
 let shift = document.querySelectorAll('.shift');
 let shiftleft = document.querySelector('#shiftleft');
 let shiftright = document.querySelector('#shiftright');
-
+let clear = document.querySelector('#clear');
 
 document.addEventListener('keydown', function(e) {
     if (e.code == 'ShiftLeft') {
@@ -22,11 +22,11 @@ document.addEventListener('keydown', function(e) {
     } else if (e.code == 'Space') {
         e.preventDefault();
         space.classList.add('keydown');
-        result.innerHTML += ' ';
+        result.value += ' ';
     } else if (e.code == 'Tab') {
         e.preventDefault();
         tab.classList.add('keydown');
-        result.innerHTML += '\t';
+        result.value += '\t';
     }
 })
 
@@ -37,11 +37,21 @@ for (let specialKey of specialKeys) {
 }
 
 keyboard.addEventListener('mousedown', (event) => {
+    event.target.classList.add('keydown');
     if (event.target.value == 'Tab') {
-        result.innerHTML += '\t';
+        result.value += '\t';
     } else if (event.target.id == 'space') {
-        result.innerHTML += ' ';
+        result.value += ' ';
     };
+});
+
+
+keyboard.addEventListener('mouseup', (event) => {
+    event.target.classList.remove('keydown');
+});
+
+keyboard.addEventListener('mouseout', (event) => {
+    event.target.classList.add('mouseout');
 });
 
 
@@ -68,18 +78,6 @@ for (let key of keys) {
         }
     }
 
-    keyboard.addEventListener('mousedown', (event) => {
-        event.target.classList.add('keydown');
-    });
-
-    
-    
-    keyboard.addEventListener('mouseup', (event) => {
-        event.target.classList.remove('keydown');
-    });
-
-    
-
     document.addEventListener('keydown', function(event) {
         if (event.key == key.value) {
             key.classList.add('keydown');
@@ -105,7 +103,7 @@ for (let key of keys) {
 
     // Запись в текстовое поле
     function keyValue() {
-        result.innerHTML += key.value;
+        result.value += key.value;
     }
 
     // Caps Lock, Shift
@@ -247,3 +245,6 @@ for (let key of keys) {
     }
 }
 
+clear.addEventListener('click', function() {
+    result.value = '';
+})

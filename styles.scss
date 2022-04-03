@@ -1,0 +1,114 @@
+$default-size: 40px;
+$default-font: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+$default-transition: all .3s ease;
+
+body {
+    background-color: aliceblue;
+	& * {
+		margin: 0;
+		padding: 0;
+	}
+}
+
+// Отступы
+.container {
+    margin: auto;
+	width: 570px;
+	transform: translateY(50%);
+	display: flex;
+	flex-direction: column;
+}
+
+// Общие стили клавиатуры
+#keyboard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: rgb(136, 91, 91);
+	border: 3px solid rgb(92, 92, 92);
+    border-radius: 10px;
+    padding: 10px;
+	& > div {
+		display: flex;
+		justify-content: space-between;
+		&:not(:last-child) {
+			margin-bottom: 5px;
+		}
+	}
+}
+
+// Шрифты и границы
+.key, .specialKey {
+	font-family: $default-font;
+    font-weight: 600;
+    border-radius: 5px;
+    border: 1px solid black;
+	&:hover {
+		transform: translateY(-2px);
+		transition: $default-transition;
+	}
+}
+
+// Размеры клавиш
+.key, #tab {
+    width: $default-size;
+    height: $default-size;
+}
+
+.shift {
+    width: 55px;
+}
+
+#capslock {
+    width: 70px;
+}
+
+#space {
+    width: 100%;
+    height: $default-size;
+}
+
+// Стили при нажатии клавиш
+.keydown {
+    color: #fff;
+    background-color: rgb(201, 77, 77);
+	transition: $default-transition;
+}
+
+.mouseout {
+	transition: $default-transition;
+}
+
+
+// Поле вывода
+#result {
+	font-family: $default-font;
+	padding: 5px;
+    width: calc(100% - 10px);
+	height: 100px;
+	border-radius: 10px 0;
+	resize: none;
+}
+
+// Кнопка очистки
+#clear {
+	font-family: $default-font;
+	font-size: 16px;
+	width: 200px;
+	padding: 10px 15px;
+	border-radius: 20px;
+	border: none;
+	background: rgb(138, 136, 148);
+	box-shadow: 0px 0px 10px 1px rgba(94, 71, 70, 0.5);
+	color: #fff;
+	cursor: pointer;
+	&:hover {
+		background: rgb(70, 44, 197);
+	}
+	&:active {
+		background: rgb(183, 238, 195);
+		color: black;
+	}
+}
+
+
